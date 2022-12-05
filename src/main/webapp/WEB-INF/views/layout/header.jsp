@@ -23,16 +23,20 @@ uri="http://java.sun.com/jsp/jstl/core"%>
   <body>
 
 <div id="main_wrap">
-  <div class="header_box">
-    <a href="/" class="btn_header" type="button">사이트 가기</a>
-    <button class="btn_header" type="button">로그아웃</button>
+  <div class="header_wrap">
+    <header>
+      <div class="logo">
+        <a href="/">hobbyUp</a>
+      </div>
+      <div class="header_box">
+        <a href="/" class="btn_header" type="button">사이트 가기</a>
+        <a href="/" class="btn_header" type="button">로그아웃</a>
+      </div>
+    </header>
   </div>
   <!-- header_box -->
 
   <div class="admin_page">
-    <div class="logo">
-      <a href="/">hobbyUp</a>
-    </div>
     <ul class="admin_left">
         <li class="admin_list1">
             <a href="/#">
@@ -85,5 +89,5 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     </ul>
   </div><!-- .gnb_mypage -->
 
-
 </div>
+
