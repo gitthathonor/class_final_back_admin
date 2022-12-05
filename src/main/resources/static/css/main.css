@@ -105,7 +105,7 @@
     height: 100%;
 }
 .main_page{
-    padding: 40px;
+    padding: 30px;
     height: 100%;
     background-color: #e3f2f7;
     border-radius: 5px;
@@ -114,33 +114,41 @@
 .form{
     align-items: center;
     background-color: #fff;
-    padding: 20px;
-    margin-bottom: 50px;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
   }
   .form_title{
     text-align: left;
-    margin-bottom: 40px;
-    height: 35px;
-    line-height: 35px;
-    line-height: 35px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+    line-height: 20px;
+  }
+  .form_title h2{
+    font-size: 20px;
+    color: #444;
   }
   .form_title .title{
     font-weight: bold;
   }
   .form table {
-    width: 100%;
+    margin: 0 auto;
+    width: 98%;
     border-top: 1px solid #ccc;
     border-collapse: collapse;
   }
   table th, td {
     border-bottom: 1px solid #ccc;
-    padding: 10px;
+    padding: 7px;
+  }
+  table td{
+    color: #444;
   }
 
   
   
 .paging{
-    margin-top: 45px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
