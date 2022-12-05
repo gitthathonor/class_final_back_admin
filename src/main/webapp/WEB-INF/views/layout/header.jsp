@@ -22,7 +22,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
   </head>
   <body>
 
-<div id="main_wrap">
+<div id="admin_wrap">
   <div class="header_wrap">
     <header>
       <div class="logo">
@@ -88,6 +88,4 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       </li>
     </ul>
   </div><!-- .gnb_mypage -->
-
-</div>
 
