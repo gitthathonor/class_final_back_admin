@@ -1,0 +1,123 @@
+#main_wrap{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.header_box{
+    position: absolute;
+    right: 30px;
+    top: 40px;
+}
+
+.header_box .btn_header{
+    color: #666;
+    font-size: 14px;
+    width: 100px;
+    padding: 5px 0 6px;
+    border-radius: 50px;
+    background: #fff;
+    border: 1px solid #DDD;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.admin_page{
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    background: #fff;
+    text-align: center;
+}
+.logo{
+    top: 40px;
+    left: 40px;
+    display: block;
+    line-height: 36px;
+    font-size: 30px;
+    position: absolute;
+}
+.logo a{
+    color: #123456; 
+    /* 나중에 */
+}
+
+.admin_left{
+    width: 260px;
+    height: 800px;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 120px;
+    padding-top: 20px;
+    border: #aaa 1px solid;
+    border-radius: 10px;
+    
+}
+.admin_left li{
+    position: relative;
+    margin-bottom: 5px;
+}
+.admin_left li a{
+    display: block;
+    position: relative;
+    padding: 15px 35px 15px 23px;
+    font-weight:300;
+    color: #222;
+    font-size: 17px;
+}
+.admin_left li .fa-regular,
+.admin_left li .fa-solid
+{
+    color: #aaa;
+}
+.admin_left li a span.txt{
+    padding-left: 12px;
+}
+.admin_left li:hover i{
+    color: #333;
+}
+
+
+
+/* 
+.paging{
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+}
+.paging ul{
+    border-radius: 5px;
+    font-size: 0;
+}
+.paging ul li{
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    padding: 6px 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+
+}
+.paging ul li.page-prev{
+    border-radius: 5px 0 0 5px;
+}
+.paging ul li.page-next{
+    border-radius: 0 5px 5px 0;
+}
+.paging ul li.active{
+    border-color: #4876ef;
+    background: #4876ef;
+}
+.paging ul li.active a{
+    color: #fff;
+}
+.paging ul li:hover{
+    background: #e8eeff;
+}
+.paging ul li.active:hover{
+    background: #4876ef;
+} */
