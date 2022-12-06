@@ -35,4 +35,24 @@ public class AdminController {
     public String order() {
         return "/order";
     }
+
+    @GetMapping("/payment")
+    public String payment() {
+        return "/payment";
+    }
+
+    @GetMapping("/inquire")
+    public String inquire() {
+        return "/inquire";
+    }
+
+    @GetMapping("/notice")
+    public String notice() {
+        return "/notice";
+    }
+
+    @GetMapping("/coupon")
+    public String coupon() {
+        return "/coupon";
+    }
 }
