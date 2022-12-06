@@ -3,53 +3,31 @@
 
         <div id="main_wrap">
             <div class="main_page">
-                <div id="total_user_info" class="form">
+                <div id="inquire_info" class="form">
                     <div class="form_title">
-                        <h2 class="title">전체 유저 내역</h2>
+                        <h2 class="title">고객 문의 내역</h2>
                     </div>
                     <div class="form_table">
                         <table>
                             <tr class="table_title">
+                                <td>문의명</td>
+                                <td>내용</td>
                                 <td>유저명</td>
-                                <td>연락처</td>
-                                <td>이메일</td>
-                                <td>가입일</td>
                             </tr>
                             <tr>
+                                <td>안녕하세요</td>
+                                <td>서버 점검</td>
                                 <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
                             </tr>
                             <tr>
+                                <td>안녕하세요</td>
+                                <td>서버 점검</td>
                                 <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
                             </tr>
                             <tr>
+                                <td>안녕하세요</td>
+                                <td>서버 점검</td>
                                 <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
                             </tr>
                         </table>
                     </div>
@@ -75,8 +53,6 @@
                     </div>
                 </div>
             </div>
-
-        </div>
         </div>
         <!-- #wrap -->
 
