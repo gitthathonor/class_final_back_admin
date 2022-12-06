@@ -48,6 +48,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div id="interest_info" class="form">
                     <div class="form_title">
                         <h2 class="title">관심분야 리스트</h2>
@@ -107,7 +108,6 @@
                         <button>추가</button>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- #wrap -->

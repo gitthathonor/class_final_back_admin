@@ -82,6 +82,7 @@
                         </li>
                         <li class="admin_list8">
                             <a href="/notice">
+
                                 <i class="fa-regular fa-bell"></i>
                                 <span class="txt">공지 등록</span>
                             </a>
@@ -92,5 +93,6 @@
                                 <span class="txt">쿠폰 관리</span>
                             </a>
                         </li>
+
                     </ul>
                 </div><!-- .admin_page -->
