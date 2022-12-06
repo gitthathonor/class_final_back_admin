@@ -64,26 +64,32 @@
                         </li>
                         <li class="admin_list5">
                             <a href="/order">
-                                <i class="fa-solid fa-file"></i>
+                                <i class="fa-solid fa-clipboard-list"></i>
                                 <span class="txt">주문 관리</span>
                             </a>
                         </li>
                         <li class="admin_list6">
-                            <a href="/#">
-                                <i class="fa-solid fa-receipt"></i>
+                            <a href="/payment">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
                                 <span class="txt">결제 리스트</span>
                             </a>
                         </li>
                         <li class="admin_list7">
-                            <a href="/#">
+                            <a href="/inquire">
                                 <i class="fa-solid fa-headphones"></i>
                                 <span class="txt">고객문의</span>
                             </a>
                         </li>
                         <li class="admin_list8">
-                            <a href="/#">
+                            <a href="/notice">
                                 <i class="fa-regular fa-bell"></i>
                                 <span class="txt">공지 등록</span>
+                            </a>
+                        </li>
+                        <li class="admin_list9">
+                            <a href="/coupon">
+                                <i class="fa-solid fa-ticket-simple"></i>
+                                <span class="txt">쿠폰 관리</span>
                             </a>
                         </li>
                     </ul>

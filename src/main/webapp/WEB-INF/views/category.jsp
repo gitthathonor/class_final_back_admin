@@ -48,7 +48,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div id="interest_info" class="form">
                     <div class="form_title">
                         <h2 class="title">관심분야 리스트</h2>
@@ -97,20 +96,17 @@
                                 </ul>
                             </div>
                     </div>
-
-                    <div id="category_info" class="form">
-                        <div class="form_title">
-                            <h2 class="title">카테고리 추가</h2>
-                            <input type="text" value="" placeholder="카테고리">
-                            <button>추가</button>
-                            <h2 class="title">관심분야 추가</h2>
-                            <input type="text" value="" placeholder="관심분야">
-                            <button>추가</button>
-                        </div>
+                </div>
+                <div id="category_input" class="form">
+                    <div class="form_title">
+                        <h2 class="title">카테고리 추가</h2>
+                        <input type="text" value="" placeholder="카테고리">
+                        <button>추가</button>
+                        <h2 class="title">관심분야 추가</h2>
+                        <input type="text" value="" placeholder="관심분야">
+                        <button>추가</button>
                     </div>
                 </div>
-
-
 
             </div>
         </div>
