@@ -169,6 +169,14 @@ table td {
     color: #444;
 }
 
+.main_page #total_profile_info table button{
+    border: 1px solid #aaa;
+    width: 50px;
+    height: 25px;
+}
+
+
+
 .paging {
     margin-top: 30px;
     display: flex;
