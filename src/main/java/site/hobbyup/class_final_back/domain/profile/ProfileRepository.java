@@ -11,6 +11,6 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
     @Query("select p from Profile p join fetch p.user u where p.user.id = :userId")
     Profile findByUserId(@Param("userId") Long userId);
 
-    @Query("select p from Profile p join fetch p.user u order by p.id desc")
+    @Query("select p from Profile p join fetch p.user u order by p.createdAt desc")
     List<Profile> findAllLatestProfile();
 }

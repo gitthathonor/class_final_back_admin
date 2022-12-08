@@ -52,4 +52,8 @@ public class User extends AuditingTime {
         this.phoneNum = userUpdateReqDto.getPhoneNum();
     }
 
+    public void updateRole() {
+        this.role = UserEnum.MASTER;
+    }
+
 }

@@ -1,13 +1,18 @@
 package site.hobbyup.class_final_back.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.hobbyup.class_final_back.config.exception.CustomApiException;
@@ -15,6 +20,7 @@ import site.hobbyup.class_final_back.domain.profile.Profile;
 import site.hobbyup.class_final_back.domain.profile.ProfileRepository;
 import site.hobbyup.class_final_back.domain.user.User;
 import site.hobbyup.class_final_back.domain.user.UserRepository;
+import site.hobbyup.class_final_back.dto.ResponseDto;
 import site.hobbyup.class_final_back.service.ProfileService;
 
 @RequiredArgsConstructor
@@ -48,6 +54,17 @@ public class AdminController {
         model.addAttribute("userList", userList);
         model.addAttribute("profileList", profileList);
         return "/user_info";
+    }
+
+    @PutMapping("/user/{userId}/role")
+    public @ResponseBody ResponseEntity<?> updateRole(@PathVariable Long userId) {
+        User userPS = userRepository.findById(userId)
+                .orElseThrow(() -> new CustomApiException("가입되지 않은 유저입니다.", HttpStatus.FORBIDDEN));
+        log.debug("디버그 : " + userId);
+        userPS.updateRole();
+        log.debug("디버그 : " + userPS.getRole());
+        userRepository.save(userPS);
+        return new ResponseEntity<>(new ResponseDto<>("role 변경", userPS.getRole()), HttpStatus.OK);
     }
 
     @GetMapping("/class")
