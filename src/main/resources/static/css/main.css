@@ -148,7 +148,7 @@
 .form table {
     margin: 0 auto;
     width: 98%;
-    font-size: 82.5%;
+    font-size: 85%;
     border-top: 1px solid #ccc;
     border-collapse: collapse;
 }
@@ -175,6 +175,16 @@ table td {
     height: 25px;
 }
 
+.form .form_table input{
+   width: 200px;
+   height: 35px;
+   font-size: 20px;
+}
+.form .form_table button{
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+ }
 
 
 .paging {
