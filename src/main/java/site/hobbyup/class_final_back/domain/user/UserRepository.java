@@ -11,7 +11,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("select u from User u where username = :username")
     Optional<User> findByUsername(@Param("username") String username);
 
-    @Query("select u from User u order by u.createdAt desc")
+    @Query("select u from User u where u.isInactive = true order by u.createdAt desc")
     List<User> findAllLatestUser();
 
     @Query("select u from User u where u.isInactive = false order by u.createdAt desc")
