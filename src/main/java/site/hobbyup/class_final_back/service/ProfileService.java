@@ -3,6 +3,7 @@ package site.hobbyup.class_final_back.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -99,4 +100,5 @@ public class ProfileService extends DecodeUtil {
                 log.debug("디버그 : service - 프로필 수정 끝");
                 return new ProfileUpdateRespDto(profileRepository.save(profilePS));
         }
+
 }

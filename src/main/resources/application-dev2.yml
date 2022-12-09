@@ -1,17 +1,18 @@
 server:
   port: 8000
   servlet:
+    context-path: /
     encoding:
       charset: utf-8
       force: true
 
 spring:
-mvc:
+  mvc:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
   datasource:
-    url: jdbc:mariadb:// localhost:3306/finaldb
+    url: jdbc:mariadb://localhost:3306/admin
     driver-class-name: org.mariadb.jdbc.Driver
     username: green
     password: green1234
