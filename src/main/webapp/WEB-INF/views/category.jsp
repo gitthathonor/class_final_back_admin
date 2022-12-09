@@ -48,7 +48,7 @@
                         <h2 class="title">카테고리 추가</h2>
                     </div>
                     <div class="form_table">
-                        <div class="form_title">
+                        <div class="input_form">
                             <input type="text" placeholder="카테고리">
                             <button>추가</button>
                         </div>
