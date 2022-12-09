@@ -13,4 +13,5 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
 
     @Query("select p from Profile p join fetch p.user u order by p.createdAt desc")
     List<Profile> findAllLatestProfile();
+
 }

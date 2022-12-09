@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.ser.std.StdArraySerializers.BooleanArraySerializer;
+
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,14 +38,19 @@ public class User extends AuditingTime {
     @Column(nullable = false)
     private UserEnum role;
 
+    @Column(name = "is_inactive")
+    private Boolean isInactive; // default가 false, 탈퇴하면 true
+
     @Builder
-    public User(Long id, String username, String password, String email, String phoneNum, UserEnum role) {
+    public User(Long id, String username, String password, String email, String phoneNum, UserEnum role,
+            Boolean isInactive) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNum = phoneNum;
         this.role = role;
+        this.isInactive = isInactive;
     }
 
     public void update(UserUpdateReqDto userUpdateReqDto) {

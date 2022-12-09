@@ -110,13 +110,13 @@
                                 <td>role</td>
                                 <td>탈퇴일</td>
                             </tr>
-                            <c:forEach var="userList" items="${userList}">
+                            <c:forEach var="deleteUserList" items="${deleteUserList}">
                                 <tr>
-                                    <td>${userList.username}</td>
-                                    <td>${userList.phoneNum}</td>
-                                    <td>${userList.email}</td>
-                                    <td>${userList.role}</td>
-                                    <td>${userList.createdAt}</td>
+                                    <td>${deleteUserList.username}</td>
+                                    <td>${deleteUserList.phoneNum}</td>
+                                    <td>${deleteUserList.email}</td>
+                                    <td>${deleteUserList.role}</td>
+                                    <td>${deleteUserList.createdAt}</td>
                                 </tr>
                             </c:forEach>
                         </table>

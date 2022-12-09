@@ -50,9 +50,15 @@ public class AdminController {
         if (profileList.size() == 0) {
             throw new CustomApiException("등록된 프로필이 없습니다.", HttpStatus.FORBIDDEN);
         }
+
+        List<User> deleteUserList = userRepository.findAllDeleteUser();
+        if (userList.size() == 0) {
+            throw new CustomApiException("탈퇴한 유저가 없습니다.", HttpStatus.FORBIDDEN);
+        }
         log.debug("디버그 : " + userList.get(0).getUsername());
         model.addAttribute("userList", userList);
         model.addAttribute("profileList", profileList);
+        model.addAttribute("deleteUserList", deleteUserList);
         return "/user_info";
     }
 

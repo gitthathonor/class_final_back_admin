@@ -21,6 +21,7 @@ public class UserReqDto {
         private String email;
         private String phoneNum;
         private UserEnum role;
+        private Boolean isInactive;
         private List<Long> categoryIds;
 
         public User toEntity() {
@@ -30,6 +31,7 @@ public class UserReqDto {
                     .email(email)
                     .phoneNum(phoneNum)
                     .role(role)
+                    .isInactive(isInactive)
                     .build();
         }
     }
