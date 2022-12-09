@@ -13,26 +13,18 @@
                                 <td>유저명</td>
                                 <td>연락처</td>
                                 <td>이메일</td>
+                                <td>role</td>
                                 <td>가입일</td>
                             </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>010-1111-1111</td>
-                                <td>ssar@nate.com</td>
-                                <td>2022-12-01</td>
-                            </tr>
+                            <c:forEach var="userList" items="${userList}">
+                                <tr>
+                                    <td>${userList.username}</td>
+                                    <td>${userList.phoneNum}</td>
+                                    <td>${userList.email}</td>
+                                    <td>${userList.role}</td>
+                                    <td>${userList.createdAt}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                     <!-- 페이징 나중에 -->
@@ -68,24 +60,14 @@
                                 <td>가격</td>
                                 <td>종료일</td>
                             </tr>
-                            <tr>
-                                <td>강의1</td>
-                                <td>ssar</td>
-                                <td>10000원</td>
-                                <td>2022-12-22</td>
-                            </tr>
-                            <tr>
-                                <td>강의2</td>
-                                <td>cos</td>
-                                <td>10000원</td>
-                                <td>2022-12-22</td>
-                            </tr>
-                            <tr>
-                                <td>강의3</td>
-                                <td>ssar</td>
-                                <td>10000원</td>
-                                <td>2022-12-22</td>
-                            </tr>
+                            <c:forEach var="profileList" items="${profileList}">
+                                <tr>
+                                    <td>${profileList.name}</td>
+                                    <td>${profileList.user.username}</td>
+                                    <td>${profileList.price}</td>
+                                    <td>${profileList.expiredAt}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                     <!-- 페이징 나중에 -->

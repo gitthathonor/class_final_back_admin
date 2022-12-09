@@ -1,7 +1,6 @@
 package site.hobbyup.class_final_back.web;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.hobbyup.class_final_back.config.exception.CustomApiException;
+import site.hobbyup.class_final_back.domain.lesson.Lesson;
+import site.hobbyup.class_final_back.domain.lesson.LessonRepository;
 import site.hobbyup.class_final_back.domain.profile.Profile;
 import site.hobbyup.class_final_back.domain.profile.ProfileRepository;
 import site.hobbyup.class_final_back.domain.user.User;
 import site.hobbyup.class_final_back.domain.user.UserRepository;
 import site.hobbyup.class_final_back.dto.ResponseDto;
-import site.hobbyup.class_final_back.service.ProfileService;
 
 @RequiredArgsConstructor
 @Controller
@@ -29,9 +29,18 @@ public class AdminController {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final ProfileRepository profileRepository;
     private final UserRepository userRepository;
+    private final LessonRepository lessonRepository;
 
     @GetMapping(value = { "/", "/main" })
-    public String main() {
+    public String main(Model model) {
+        List<User> userList = userRepository.findTop5Users();
+
+        List<Lesson> lessonList = lessonRepository.findTop5Lessons();
+
+        model.addAttribute("userList", userList);
+        model.addAttribute("lessonList", lessonList);
+        // 주문 list 추가해야됨
+
         return "/main";
     }
 
@@ -43,19 +52,11 @@ public class AdminController {
     @GetMapping("/user_info")
     public String userInfo(Model model) {
         List<User> userList = userRepository.findAllLatestUser();
-        if (userList.size() == 0) {
-            throw new CustomApiException("가입한 유저가 없습니다.", HttpStatus.FORBIDDEN);
-        }
+
         List<Profile> profileList = profileRepository.findAllLatestProfile();
-        if (profileList.size() == 0) {
-            throw new CustomApiException("등록된 프로필이 없습니다.", HttpStatus.FORBIDDEN);
-        }
 
         List<User> deleteUserList = userRepository.findAllDeleteUser();
-        if (userList.size() == 0) {
-            throw new CustomApiException("탈퇴한 유저가 없습니다.", HttpStatus.FORBIDDEN);
-        }
-        log.debug("디버그 : " + userList.get(0).getUsername());
+
         model.addAttribute("userList", userList);
         model.addAttribute("profileList", profileList);
         model.addAttribute("deleteUserList", deleteUserList);
