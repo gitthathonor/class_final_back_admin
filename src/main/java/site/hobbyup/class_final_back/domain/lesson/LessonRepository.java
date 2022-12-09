@@ -27,4 +27,7 @@ public interface LessonRepository extends JpaRepository<Lesson, Long> {
         @Query("select l from Lesson l where l.name LIKE %:keyword%")
         List<Lesson> findByKeyword(@Param("keyword") String keyword);
 
+        @Query(value = "SELECT * FROM lesson l LEFT JOIN users u ON l.user_id=u.id ORDER BY l.created_at desc LIMIT 5", nativeQuery = true)
+        List<Lesson> findTop5Lessons();
+
 }
