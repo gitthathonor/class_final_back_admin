@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import site.hobbyup.class_final_back.config.exception.CustomApiException;
 import site.hobbyup.class_final_back.domain.category.Category;
 import site.hobbyup.class_final_back.domain.category.CategoryRepository;
+
 import site.hobbyup.class_final_back.domain.lesson.Lesson;
 import site.hobbyup.class_final_back.domain.lesson.LessonRepository;
 import site.hobbyup.class_final_back.domain.profile.Profile;
@@ -38,6 +39,7 @@ public class AdminController {
     private final UserRepository userRepository;
     private final LessonRepository lessonRepository;
     private final CategoryRepository categoryRepository;
+
 
     @GetMapping(value = { "/", "/main" })
     public String main(Model model) {
@@ -60,6 +62,10 @@ public class AdminController {
     @GetMapping("/user_info")
     public String userInfo(Model model) {
         List<User> userList = userRepository.findAllLatestUser();
+
+        List<Profile> profileList = profileRepository.findAllLatestProfile();
+
+        List<User> deleteUserList = userRepository.findAllDeleteUser();
 
         List<Profile> profileList = profileRepository.findAllLatestProfile();
 
