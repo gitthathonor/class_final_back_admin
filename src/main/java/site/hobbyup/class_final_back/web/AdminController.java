@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.hobbyup.class_final_back.config.exception.CustomApiException;
+import site.hobbyup.class_final_back.domain.lesson.Lesson;
+import site.hobbyup.class_final_back.domain.lesson.LessonRepository;
 import site.hobbyup.class_final_back.domain.profile.Profile;
 import site.hobbyup.class_final_back.domain.profile.ProfileRepository;
 import site.hobbyup.class_final_back.domain.user.User;
@@ -29,9 +31,18 @@ public class AdminController {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private final ProfileRepository profileRepository;
     private final UserRepository userRepository;
+    private final LessonRepository lessonRepository;
 
     @GetMapping(value = { "/", "/main" })
-    public String main() {
+    public String main(Model model) {
+        List<User> userList = userRepository.findTop5Users();
+
+        List<Lesson> lessonList = lessonRepository.findTop5Lessons();
+
+        model.addAttribute("userList", userList);
+        model.addAttribute("lessonList", lessonList);
+        // 주문 list 추가해야됨
+
         return "/main";
     }
 
@@ -43,6 +54,7 @@ public class AdminController {
     @GetMapping("/user_info")
     public String userInfo(Model model) {
         List<User> userList = userRepository.findAllLatestUser();
+
         if (userList.size() == 0) {
             throw new CustomApiException("가입한 유저가 없습니다.", HttpStatus.FORBIDDEN);
         }
@@ -56,6 +68,11 @@ public class AdminController {
             throw new CustomApiException("탈퇴한 유저가 없습니다.", HttpStatus.FORBIDDEN);
         }
         log.debug("디버그 : " + userList.get(0).getUsername());
+
+        List<Profile> profileList = profileRepository.findAllLatestProfile();
+
+        List<User> deleteUserList = userRepository.findAllDeleteUser();
+
         model.addAttribute("userList", userList);
         model.addAttribute("profileList", profileList);
         model.addAttribute("deleteUserList", deleteUserList);
