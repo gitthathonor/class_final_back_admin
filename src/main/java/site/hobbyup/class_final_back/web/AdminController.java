@@ -1,6 +1,7 @@
 package site.hobbyup.class_final_back.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ import site.hobbyup.class_final_back.domain.profile.ProfileRepository;
 import site.hobbyup.class_final_back.domain.user.User;
 import site.hobbyup.class_final_back.domain.user.UserRepository;
 import site.hobbyup.class_final_back.dto.ResponseDto;
+import site.hobbyup.class_final_back.service.ProfileService;
 
 @RequiredArgsConstructor
 @Controller
@@ -52,6 +54,20 @@ public class AdminController {
     @GetMapping("/user_info")
     public String userInfo(Model model) {
         List<User> userList = userRepository.findAllLatestUser();
+
+        if (userList.size() == 0) {
+            throw new CustomApiException("가입한 유저가 없습니다.", HttpStatus.FORBIDDEN);
+        }
+        List<Profile> profileList = profileRepository.findAllLatestProfile();
+        if (profileList.size() == 0) {
+            throw new CustomApiException("등록된 프로필이 없습니다.", HttpStatus.FORBIDDEN);
+        }
+
+        List<User> deleteUserList = userRepository.findAllDeleteUser();
+        if (userList.size() == 0) {
+            throw new CustomApiException("탈퇴한 유저가 없습니다.", HttpStatus.FORBIDDEN);
+        }
+        log.debug("디버그 : " + userList.get(0).getUsername());
 
         List<Profile> profileList = profileRepository.findAllLatestProfile();
 
