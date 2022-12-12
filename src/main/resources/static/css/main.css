@@ -115,6 +115,7 @@
     padding: 30px;
     height: 100%;
     background-color: #e3f2f7;
+    /* 4880ED */
     border-radius: 5px;
 }
 
@@ -148,7 +149,7 @@
 .form table {
     margin: 0 auto;
     width: 98%;
-    font-size: 82.5%;
+    font-size: 85%;
     border-top: 1px solid #ccc;
     border-collapse: collapse;
 }
@@ -169,12 +170,32 @@ table td {
     color: #444;
 }
 
+.form button{
+    cursor: pointer;
+}
 .main_page #total_profile_info table button{
     border: 1px solid #aaa;
     width: 50px;
     height: 25px;
 }
 
+.form .form_table .input_form{
+    text-align: left;
+    margin-left: 15px;
+}
+.form .form_table input{
+   width: 100px;
+   height: 26px;
+   font-size: 15px;
+   line-height: 30px;
+}
+#category_input_form button{
+    border: 1px solid #aaa;
+    width: 50px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 28px;
+ }
 
 
 .paging {
