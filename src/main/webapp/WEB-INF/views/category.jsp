@@ -48,9 +48,9 @@
                         <h2 class="title">카테고리 추가</h2>
                     </div>
                     <div class="form_table">
-                        <div class="form_title">
-                            <input type="text" placeholder="카테고리">
-                            <button>추가</button>
+                        <div class="input_form">
+                            <input id="category_name" type="text" placeholder="카테고리">
+                            <button id="btnSave" type="button">추가</button>
                         </div>
                     </div>
                 </div>
@@ -59,9 +59,31 @@
             </div>
         </div>
         <!-- #wrap -->
-
-        <script src="/js/main.js"></script>
         </div>
         </body>
+        <script>
+            $("#btnSave").click(()=>{
+                save();
+            });
 
+            function save(){
+                let category = $("#category_name").val();
+
+                $.ajax("/category", {
+                    type: "POST",
+                    dataType: "json", 
+                    data: JSON.stringify(category), 
+                    headers: { 
+                        "Content-Type": "application/json"
+                    }
+                }).done((res) => {
+                    alert("카테고리 추가 완료");
+                    console.log(res);
+                    location.reload();
+            }) 
+            .fail((res)=>{
+                    alert("추가 실패")
+                });
+            };
+        </script>
         </html>

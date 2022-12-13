@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,8 @@ import site.hobbyup.class_final_back.domain.profile.ProfileRepository;
 import site.hobbyup.class_final_back.domain.user.User;
 import site.hobbyup.class_final_back.domain.user.UserRepository;
 import site.hobbyup.class_final_back.dto.ResponseDto;
+import site.hobbyup.class_final_back.dto.category.CategoryReqDto.CategorySaveReqDto;
+import site.hobbyup.class_final_back.dto.category.CategoryRespDto.CategorySaveRespDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -70,9 +74,8 @@ public class AdminController {
     public @ResponseBody ResponseEntity<?> updateRole(@PathVariable Long userId) {
         User userPS = userRepository.findById(userId)
                 .orElseThrow(() -> new CustomApiException("가입되지 않은 유저입니다.", HttpStatus.FORBIDDEN));
-        log.debug("디버그 : " + userId);
+
         userPS.updateRole();
-        log.debug("디버그 : " + userPS.getRole());
         userRepository.save(userPS);
         return new ResponseEntity<>(new ResponseDto<>("role 변경", userPS.getRole()), HttpStatus.OK);
     }
@@ -87,6 +90,12 @@ public class AdminController {
         List<Category> categoryList = categoryRepository.findAll();
         model.addAttribute("categoryList", categoryList);
         return "/category";
+    }
+
+    @PostMapping("/category")
+    public @ResponseBody ResponseEntity<?> saveCategory(@RequestBody CategorySaveReqDto categorySaveReqDto) {
+        Category category = categoryRepository.save(categorySaveReqDto.toEntity());
+        return new ResponseEntity<>(new ResponseDto<>("카테고리 추가", new CategorySaveRespDto(category)), HttpStatus.OK);
     }
 
     @GetMapping("/order")
