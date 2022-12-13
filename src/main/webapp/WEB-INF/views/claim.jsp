@@ -13,13 +13,16 @@
                                 <td>번호</td>
                                 <td>전문가 번호</td>
                                 <td>전문가명</td>
+                                <td>권한</td>
                                 <td>권한 변경</td>
+                                
                             </tr>
                             <c:forEach var="claimList" items="${claimList}">
                                 <tr>
                                     <td>${claimList.id}</td>
                                     <td>${claimList.expert.id}</td>
                                     <td>${claimList.expert.user.username}</td>
+                                    <td>${claimList.expert.approval}</td>
                                     <td><button id="btnChange" value="${claimList.expert.id}" type="button" onclick="alert('권한이 변경되었습니다.')">변경</button></td>
                                 </tr>
                             </c:forEach>
@@ -64,7 +67,7 @@
 
                 console.log("업데이트");
 
-                $.ajax(expertId+"/claim", {
+                $.ajax("/expert/"+expertId+"/claim", {
                     type: "PUT",
                     headers: {
                         "Content-Type": "application/json; charset=utf-8",

@@ -70,7 +70,7 @@
                                     <td>${profileList.careerYear}</td>
                                     <td>${profileList.career}</td>
                                     <td>${profileList.createdAt}</td>
-                                    <td><button id="btnRoleChange" value="${profileList.user.id}" type="button" onclick="alert('role이 변경되었습니다.')">변경</button></td>
+                                    <td><button id="btnRoleChange" value="${profileList.user.id}" type="button" onclick="alert('role이 변경되었습니다.')">${profileList.user.id}</button></td>
                                 </tr>
                             </c:forEach>
                         </table>

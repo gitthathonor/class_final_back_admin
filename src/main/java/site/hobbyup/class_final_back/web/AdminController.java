@@ -112,7 +112,7 @@ public class AdminController {
         return "/claim";
     }
 
-    @PutMapping("/{expertId}/claim")
+    @PutMapping("/expert/{expertId}/claim")
     public @ResponseBody ResponseEntity<?> update(@PathVariable Long expertId) {
         Expert expertPS = expertRepository.findById(expertId)
                 .orElseThrow(() -> new CustomApiException("존재하지 않는 전문가입니다.", HttpStatus.FORBIDDEN));
