@@ -19,6 +19,10 @@ import lombok.RequiredArgsConstructor;
 import site.hobbyup.class_final_back.config.exception.CustomApiException;
 import site.hobbyup.class_final_back.domain.category.Category;
 import site.hobbyup.class_final_back.domain.category.CategoryRepository;
+import site.hobbyup.class_final_back.domain.claim.Claim;
+import site.hobbyup.class_final_back.domain.claim.ClaimRepository;
+import site.hobbyup.class_final_back.domain.expert.Expert;
+import site.hobbyup.class_final_back.domain.expert.ExpertRepository;
 import site.hobbyup.class_final_back.domain.lesson.Lesson;
 import site.hobbyup.class_final_back.domain.lesson.LessonRepository;
 import site.hobbyup.class_final_back.domain.profile.Profile;
@@ -37,11 +41,12 @@ public class AdminController {
     private final UserRepository userRepository;
     private final LessonRepository lessonRepository;
     private final CategoryRepository categoryRepository;
+    private final ClaimRepository claimRepository;
+    private final ExpertRepository expertRepository;
 
-    @GetMapping(value = { "/", "/main" })
+    @GetMapping(value = { "/", "/api/admin/main" })
     public String main(Model model) {
         List<User> userList = userRepository.findTop5Users();
-
         List<Lesson> lessonList = lessonRepository.findTop5Lessons();
 
         model.addAttribute("userList", userList);
@@ -63,7 +68,6 @@ public class AdminController {
         List<Profile> profileList = profileRepository.findAllLatestProfile();
 
         List<User> deleteUserList = userRepository.findAllDeleteUser();
-
         model.addAttribute("userList", userList);
         model.addAttribute("profileList", profileList);
         model.addAttribute("deleteUserList", deleteUserList);
@@ -81,7 +85,9 @@ public class AdminController {
     }
 
     @GetMapping("/class")
-    public String classList() {
+    public String classList(Model model) {
+        List<Lesson> lessonList = lessonRepository.findAll();
+        model.addAttribute("lessonList", lessonList);
         return "/class";
     }
 
@@ -98,6 +104,24 @@ public class AdminController {
         return new ResponseEntity<>(new ResponseDto<>("카테고리 추가", new CategorySaveRespDto(category)), HttpStatus.OK);
     }
 
+    @GetMapping("/claim")
+    public String getClaimList(Model model) {
+        List<Claim> claimList = claimRepository.findAll();
+
+        model.addAttribute("claimList", claimList);
+        return "/claim";
+    }
+
+    @PutMapping("/{expertId}/claim")
+    public @ResponseBody ResponseEntity<?> update(@PathVariable Long expertId) {
+        Expert expertPS = expertRepository.findById(expertId)
+                .orElseThrow(() -> new CustomApiException("존재하지 않는 전문가입니다.", HttpStatus.FORBIDDEN));
+
+        expertPS.update();
+        expertRepository.save(expertPS);
+        return new ResponseEntity<>(new ResponseDto<>("권한 변경", expertPS.getId()), HttpStatus.OK);
+    }
+
     @GetMapping("/order")
     public String order() {
         return "/order";
@@ -108,17 +132,17 @@ public class AdminController {
         return "/payment";
     }
 
-    @GetMapping("/inquire")
+    @GetMapping("/api/admin/inquire")
     public String inquire() {
         return "/inquire";
     }
 
-    @GetMapping("/notice")
+    @GetMapping("/api/admin/notice")
     public String notice() {
         return "/notice";
     }
 
-    @GetMapping("/coupon")
+    @GetMapping("/api/admin/coupon")
     public String coupon() {
         return "/coupon";
     }

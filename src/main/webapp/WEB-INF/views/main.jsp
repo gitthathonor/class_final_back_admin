@@ -60,12 +60,12 @@
                                 <td>가격</td>
                                 <td>종료일</td>
                             </tr>
-                            <c:forEach var="profileList" items="${profileList}">
+                            <c:forEach var="lessonList" items="${lessonList}">
                                 <tr>
-                                    <td>${profileList.name}</td>
-                                    <td>${profileList.user.username}</td>
-                                    <td>${profileList.price}</td>
-                                    <td>${profileList.expiredAt}</td>
+                                    <td>${lessonList.name}</td>
+                                    <td>${lessonList.user.username}</td>
+                                    <td>${lessonList.price}</td>
+                                    <td>${lessonList.expiredAt}</td>
                                 </tr>
                             </c:forEach>
                         </table>
