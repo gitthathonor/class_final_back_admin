@@ -106,7 +106,7 @@ public class AdminController {
 
     @GetMapping("/claim")
     public String getClaimList(Model model) {
-        List<Claim> claimList = claimRepository.findAll();
+        List<Claim> claimList = claimRepository.findAllfalse();
 
         model.addAttribute("claimList", claimList);
         return "/claim";
