@@ -17,13 +17,13 @@
                                 <td>권한 변경</td>
                                 
                             </tr>
-                            <c:forEach var="claimList" items="${claimList}">
+                            <c:forEach var="claim" items="${claimList}" varStatus="status">
                                 <tr>
-                                    <td>${claimList.id}</td>
-                                    <td>${claimList.expert.id}</td>
-                                    <td>${claimList.expert.user.username}</td>
-                                    <td>${claimList.expert.approval}</td>
-                                    <td><button id="btnChange" value="${claimList.expert.id}" type="button" onclick="alert('권한이 변경되었습니다.')">변경</button></td>
+                                    <td>${claim.id}</td>
+                                    <td>${claim.expert.id}</td>
+                                    <td>${claim.expert.user.username}</td>
+                                    <td>${claim.expert.approval}</td>
+                                    <td><button class="btnChange" id="btnChange${status.index}" type="button" onclick="update(${claim.expert.id})">변경</button></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -58,12 +58,8 @@
         </div>
         </body>
         <script>
-            $("#btnChange").click(() => {
-                update();
-            });
 
-            function update() {
-                let expertId = $("#btnChange").val();
+            function update(expertId) {
 
                 console.log("업데이트");
 
