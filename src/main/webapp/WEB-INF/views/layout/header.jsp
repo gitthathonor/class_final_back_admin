@@ -38,7 +38,7 @@
                 <div class="admin_page">
                     <ul class="admin_left">
                         <li class="admin_list1">
-                            <a href="/statistics">
+                            <a href="/api/admin/statistics">
                                 <i class="fa-solid fa-chart-simple"></i>
                                 <span class="txt">통계</span>
                             </a>
@@ -62,32 +62,38 @@
                             </a>
                         </li>
                         <li class="admin_list5">
-                            <a href="/order">
+                            <a href="/claim">
+                                <i class="fa-solid fa-check"></i>
+                                <span class="txt">권한요청</span>
+                            </a>
+                        </li>
+                        <li class="admin_list6">
+                            <a href="/api/admin/order">
                                 <i class="fa-solid fa-clipboard-list"></i>
                                 <span class="txt">주문 관리</span>
                             </a>
                         </li>
-                        <li class="admin_list6">
-                            <a href="/payment">
+                        <li class="admin_list7">
+                            <a href="/api/admin/payment">
                                 <i class="fa-solid fa-file-invoice-dollar"></i>
                                 <span class="txt">결제 리스트</span>
                             </a>
                         </li>
-                        <li class="admin_list7">
-                            <a href="/inquire">
+                        <li class="admin_list8">
+                            <a href="/api/admin/inquire">
                                 <i class="fa-solid fa-headphones"></i>
                                 <span class="txt">고객문의</span>
                             </a>
                         </li>
-                        <li class="admin_list8">
-                            <a href="/notice">
+                        <li class="admin_list9">
+                            <a href="/api/admin/notice">
 
                                 <i class="fa-regular fa-bell"></i>
                                 <span class="txt">공지 등록</span>
                             </a>
                         </li>
-                        <li class="admin_list9">
-                            <a href="/coupon">
+                        <li class="admin_list10">
+                            <a href="/api/admin/coupon">
                                 <i class="fa-solid fa-ticket-simple"></i>
                                 <span class="txt">쿠폰 관리</span>
                             </a>

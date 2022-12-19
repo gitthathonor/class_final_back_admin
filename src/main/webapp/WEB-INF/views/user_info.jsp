@@ -63,14 +63,14 @@
                                 <td>등록일</td>
                                 <td>role 변경</td>
                             </tr>
-                            <c:forEach var="profileList" items="${profileList}">
+                            <c:forEach var="profileList" items="${profileList}" varStatus="status">
                                 <tr>
                                     <td>${profileList.user.username}</td>
                                     <td>${profileList.region}</td>
                                     <td>${profileList.careerYear}</td>
                                     <td>${profileList.career}</td>
                                     <td>${profileList.createdAt}</td>
-                                    <td><button id="btnRoleChange" value="${profileList.user.id}" type="button" onclick="alert('role이 변경되었습니다.')">변경</button></td>
+                                    <td><button id="btnRoleChange${status.index}" class="btnRoleChange" type="button" onclick="updateRole(${profileList.user.id})">변경</button></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -150,14 +150,10 @@
         </div>
         </body>
         <script>
-            $("#btnRoleChange").click(() => {
-                updateRole();
-            });
-
-            function updateRole() {
-                let userId = $("#btnRoleChange").val();
-
+            function updateRole(userId) {
+    
                 console.log("업데이트");
+                console.log(userId);
 
                 $.ajax("/user/"+userId+"/role", {
                     type: "PUT",

@@ -3,24 +3,27 @@
 
         <div id="main_wrap">
             <div class="main_page">
-                <div id="total_class_info" class="form">
+                <div id="total_claim_info" class="form">
                     <div class="form_title">
-                        <h2 class="title">전체 클래스 리스트</h2>
+                        <h2 class="title">권한 요청 내역</h2>
                     </div>
                     <div class="form_table">
                         <table>
                             <tr class="table_title">
-                                <td>강의명</td>
-                                <td>강사명</td>
-                                <td>가격</td>
-                                <td>종료일</td>
+                                <td>번호</td>
+                                <td>전문가 번호</td>
+                                <td>전문가명</td>
+                                <td>권한</td>
+                                <td>권한 변경</td>
+                                
                             </tr>
-                            <c:forEach var="lessonList" items="${lessonList}">
+                            <c:forEach var="claim" items="${claimList}" varStatus="status">
                                 <tr>
-                                    <td>${lessonList.name}</td>
-                                    <td>${lessonList.user.username}</td>
-                                    <td>${lessonList.price}</td>
-                                    <td>${lessonList.expiredAt}</td>
+                                    <td>${claim.id}</td>
+                                    <td>${claim.expert.id}</td>
+                                    <td>${claim.expert.user.username}</td>
+                                    <td>${claim.expert.approval}</td>
+                                    <td><button class="btnChange" id="btnChange${status.index}" type="button" onclick="update(${claim.expert.id})">변경</button></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -46,16 +49,33 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
-
-
 
         </div>
         </div>
         <!-- #wrap -->
-
-        <script src="/js/main.js"></script>
         </div>
         </body>
+        <script>
 
+            function update(expertId) {
+
+                console.log("업데이트");
+
+                $.ajax("/expert/"+expertId+"/claim", {
+                    type: "PUT",
+                    headers: {
+                        "Content-Type": "application/json; charset=utf-8",
+            },
+            }).done((res) => {
+                    alert("수정 완료");
+                    console.log(res);
+                    location.reload();
+            }) 
+            .fail((res)=>{
+                    alert("업데이트 실패")
+                });
+            };
+        </script>
         </html>
