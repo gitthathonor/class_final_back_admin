@@ -135,6 +135,7 @@ public class AdminController {
         return "/payment";
     }
 
+
     // @PostMapping("/payment")
     // public @ResponseBody ResponseEntity<?> savePayment(@RequestBody
     // PaymentSaveReqDto paymentSaveReqDto) {
@@ -148,12 +149,12 @@ public class AdminController {
         return "/inquire";
     }
 
-    @GetMapping("/notice")
+    @GetMapping("/api/admin/notice")
     public String notice() {
         return "/notice";
     }
 
-    @GetMapping("/coupon")
+    @GetMapping("/api/admin/coupon")
     public String coupon() {
         return "/coupon";
     }

@@ -37,6 +37,7 @@
 
                 <div class="admin_page">
                     <ul class="admin_left">
+
                         <!-- <li class="admin_list1">
                             <a href="/api/admin/statistics">
                                 <i class="fa-solid fa-chart-simple"></i>
@@ -68,12 +69,14 @@
                             </a>
                         </li>
                         <li class="admin_list6">
+
                             <a href="/order">
                                 <i class="fa-solid fa-clipboard-list"></i>
                                 <span class="txt">주문 관리</span>
                             </a>
                         </li>
                         <li class="admin_list7">
+
                             <a href="/payment">
                                 <i class="fa-solid fa-file-invoice-dollar"></i>
                                 <span class="txt">결제 타입 관리</span>
