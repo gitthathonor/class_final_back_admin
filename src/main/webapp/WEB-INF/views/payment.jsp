@@ -5,26 +5,20 @@
             <div class="main_page">
                 <div id="payment_info" class="form">
                     <div class="form_title">
-                        <h2 class="title">결제 리스트</h2>
+                        <h2 class="title">결제 타입 관리</h2>
                     </div>
                     <div class="form_table">
                         <table>
                             <tr class="table_title">
-                                <td>유저명</td>
-                                <td>가격</td>
+                                <td>번호</td>
+                                <td>결제타입명</td>
                             </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>10000</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>10000</td>
-                            </tr>
-                            <tr>
-                                <td>ssar</td>
-                                <td>10000</td>
-                            </tr>
+                            <c:forEach var="paymentList" items="${paymentList}">
+                                <tr>
+                                    <td>${paymentList.id}</td>
+                                    <td>${paymentList.name}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                     <!-- 페이징 나중에 -->
@@ -49,12 +43,46 @@
                     </div>
                 </div>
 
+                <div id="payment_input_form" class="form">
+                    <div class="form_title">
+                        <h2 class="title">결제 타입 추가</h2>
+                    </div>
+                    <div class="form_table">
+                        <div class="input_form">
+                            <input id="payment_name" type="text" placeholder="결제타입">
+                            <button id="btnSave" type="button">추가</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <!-- #wrap -->
-
-        <script src="/js/main.js"></script>
         </div>
         </body>
+        <script>
+            $("#btnSave").click(()=>{
+                save();
+            });
 
+            function save(){
+                let payment = $("#payment_name").val();
+
+                $.ajax("/payment", {
+                    type: "POST",
+                    dataType: "json", 
+                    data: JSON.stringify(payment), 
+                    headers: { 
+                        "Content-Type": "application/json"
+                    }
+                }).done((res) => {
+                    alert("결제타입 추가 완료");
+                    console.log(res);
+                    location.reload();
+            }) 
+            .fail((res)=>{
+                    alert("추가 실패")
+                });
+            };
+        </script>
         </html>

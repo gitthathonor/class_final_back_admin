@@ -48,11 +48,11 @@ public class AdminController {
     public String main(Model model) {
         List<User> userList = userRepository.findTop5Users();
         List<Lesson> lessonList = lessonRepository.findTop5Lessons();
+        // List<Order> orderList = orderRepository.findTop5Orders();
 
         model.addAttribute("userList", userList);
         model.addAttribute("lessonList", lessonList);
-        // 주문 list 추가해야됨
-
+        // model.addAttribute("orderList", orderList);
         return "/main";
     }
 
@@ -107,7 +107,6 @@ public class AdminController {
     @GetMapping("/claim")
     public String getClaimList(Model model) {
         List<Claim> claimList = claimRepository.findAllfalse();
-
         model.addAttribute("claimList", claimList);
         return "/claim";
     }
@@ -123,16 +122,29 @@ public class AdminController {
     }
 
     @GetMapping("/order")
-    public String order() {
+    public String order(Model model) {
+        // List<Order> orderList = orderRepository.findAll();
+        // model.addAttribute("orderList", orderList);
         return "/order";
     }
 
     @GetMapping("/payment")
-    public String payment() {
+    public String payment(Model model) {
+        // List<Payment> paymentList = paymentRepository.findAll();
+        // model.addAttribute("paymentList", paymentList);
         return "/payment";
     }
 
-    @GetMapping("/api/admin/inquire")
+
+    // @PostMapping("/payment")
+    // public @ResponseBody ResponseEntity<?> savePayment(@RequestBody
+    // PaymentSaveReqDto paymentSaveReqDto) {
+    // Payment payment = paymentRepository.save(paymentSaveReqDto.toEntity());
+    // return new ResponseEntity<>(new ResponseDto<>("결제타입 추가", new
+    // PaymentSaveRespDto(payment)), HttpStatus.OK);
+    // }
+
+    @GetMapping("/inquire")
     public String inquire() {
         return "/inquire";
     }

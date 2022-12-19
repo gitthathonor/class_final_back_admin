@@ -173,6 +173,8 @@ table td {
 .form button{
     cursor: pointer;
 }
+
+.main_page #total_claim_info table button,
 .main_page #total_profile_info table button{
     border: 1px solid #aaa;
     width: 50px;
@@ -195,6 +197,7 @@ table td {
     font-size: 15px;
     line-height: 30px;
 }
+#payment_input_form button,
 #category_input_form button{
     border: 1px solid #aaa;
     border-radius: 3px;
