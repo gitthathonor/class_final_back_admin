@@ -17,6 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("select u from User u where u.isInactive = true order by u.createdAt desc")
     List<User> findAllDeleteUser();
 
-    @Query(value = "select * from users u order by created_at limit 5", nativeQuery = true)
+    @Query(value = "select * from users u order by created_at desc limit 5", nativeQuery = true)
     List<User> findTop5Users();
 }

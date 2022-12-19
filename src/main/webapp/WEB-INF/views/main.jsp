@@ -27,26 +27,7 @@
                             </c:forEach>
                         </table>
                     </div>
-                    <!-- 페이징 나중에 -->
-                    <div class="paging">
-                        <ul class="pagination">
-                            <li class="page-item page-prev">
-                                <a class="page-link" href="#">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item page-next">
-                                <a class="page-link" href="#">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                 
                 </div>
                 <div id="class_info" class="form">
                     <div class="form_title">
@@ -70,26 +51,7 @@
                             </c:forEach>
                         </table>
                     </div>
-                    <!-- 페이징 나중에 -->
-                    <div class="paging">
-                        <ul class="pagination">
-                            <li class="page-item page-prev">
-                                <a class="page-link" href="#">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item page-next">
-                                <a class="page-link" href="#">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                 
                 </div>
                 <div id="order_info" class="form">
                     <div class="form_title">
@@ -127,26 +89,7 @@
                             </tr>
                         </table>
                     </div>
-                    <!-- 페이징 나중에 -->
-                    <div class="paging">
-                        <ul class="pagination">
-                            <li class="page-item page-prev">
-                                <a class="page-link" href="#">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item page-next">
-                                <a class="page-link" href="#">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                   
                 </div>
             </div>
 
